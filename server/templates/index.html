@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Monitoring</title>
+</head>
+<body>
+    <h1>Active Clients</h1>
+    <table border="1">
+        <tr>
+            <th>IP</th>
+            <th>User</th>
+            <th>Last Active</th>
+            <th>Action</th>
+        </tr>
+        {% for client in clients %}
+        <tr>
+            <td>{{ client.ip }}</td>
+            <td>{{ client.user }}</td>
+            <td>{{ client.last_active }}</td>
+            <td><a href="/screenshot/{{ client.ip }}">Request Screenshot</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
