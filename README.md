@@ -26,7 +26,7 @@
 ![made_with](https://img.shields.io/badge/Language-С++-purple)
 ![language](https://img.shields.io/badge/Language-Python-blue)
 
-# Employee Activity Monitoring
+# Мониторинг активности сотрудников
 
 ## Описание
 
