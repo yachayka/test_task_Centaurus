@@ -7,7 +7,7 @@
 > Simple application to show current work activity of all employers in organisation
 > 
 > Example applications 
-> https://www.teramind.co/solutions/employee-monitoring-software
+> https://www.teramind.co/solutions/employee-monitoring-software , 
 > https://veriato.com/product/
 > 
 > Client (windows) - c/c++
@@ -44,30 +44,32 @@
   - Показывает домен, имя машины, IP, пользователя и время последней активности  
   - Позволяет получить скриншот с клиента
 
----
+
 
 ## Структура репозитория
 
 ```
-
 test_task_Centaurus/
 │
-├── client/ # Клиент на C/C++
-│ ├── Client.sln # Visual Studio solution
-│ ├── main.cpp # Основной код клиента
-│ └── ...
+├── client/                     # Client-side application (C/C++)
+│   ├── client.cpp              # Main client program
+│   ├── screenshot.cpp          # Screen capture functionality
+│   ├── activity_monitor.cpp    # Activity monitoring logic (user idle time)
+│   ├── client.h                # Header file for client functions
+│   ├── Makefile                # Build script (if using Make)
+│   └── config.ini              # Configuration file (e.g., server address, heartbeat frequency)
 │
-├── server/ # Сервер на Python Flask
-│ ├── app.py # Flask-приложение
-│ ├── requirements.txt # Python-зависимости
-│ └── ...
+├── server/                     # Server-side application (Python Flask server)
+│   ├── server.py               # Main server program (Flask)
+│   ├── templates/              # HTML templates for the UI
+│   │   └── index.html          # Frontend to display connected clients
+│   └── requirements.txt        # Dependencies for Python server
 │
-└── README.md # Документация
+└── README.md                   # Project overview and setup instructions
 
 ```
 
 
----
 
 ## Сборка и запуск
 
@@ -105,7 +107,7 @@ python app.py
 
 6. Откройте в браузере [http://localhost:5000](http://localhost:5000).
 
----
+
 
 ## Использование
 
@@ -113,7 +115,7 @@ python app.py
 - Сервер отображает список клиентов и их статус.
 - По запросу сервера клиент отправляет скриншот рабочего стола.
 
----
+
 
 ## Особенности реализации
 
@@ -122,7 +124,7 @@ python app.py
 - Сервер реализован на Flask с простым REST API.
 - Нет сторонних библиотек на клиенте, как требовалось в задании.
 
----
+
 
 ## Ссылки
 
