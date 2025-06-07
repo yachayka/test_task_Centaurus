@@ -1,23 +1,23 @@
-# WorkMonitor - Client-Server Monitoring Application
+# # Work Monitor - Клиент-серверное приложение для мониторинга
 
-## Overview
+## Обзор
 
-This project contains a simple client-server application to monitor user activity on a network of computers. The client runs silently on a Windows machine, tracking user input activity, sending heartbeats, and capturing screenshots upon request from the server.
+Этот проект содержит простое клиент-серверное приложение для мониторинга активности пользователей в сети компьютеров. Клиент работает в автоматическом режиме на компьютере с Windows, отслеживая активность пользователя при вводе данных, отправляя сообщения о сердечных сокращениях и делая снимки экрана по запросу сервера.
 
-## Client-side (C/C++)
+## Клиентская часть (C/C++)
 
-The client performs the following tasks:
-- Monitor user activity (idle time and activity status)
-- Send heartbeat data to the server
-- Capture screenshots of the desktop
+Клиент выполняет следующие задачи:
+- Отслеживает активность пользователя (время простоя и статус активности)
+- Отправляет данные о сердцебиении на сервер
+- Делает скриншоты рабочего стола
 
-### Dependencies
+### Зависимости
 
-- C++ compiler (e.g., Visual Studio or GCC on Windows)
-- Windows SDK (for accessing Windows APIs like `GetLastInputInfo`)
+- Компилятор C++ (например, Visual Studio или GCC в Windows)
+- Windows SDK (для доступа к API-интерфейсам Windows, таким как "GetLastInputInfo")
 
-### How to Build
+### Как создать
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yachayka/WorkMonitor.git
+1. Клонировать репозиторий:
+   ``bash
+git clone https://github.com/yachayka/WorkMonitor.git

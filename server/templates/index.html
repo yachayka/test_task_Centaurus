@@ -3,25 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client Monitoring</title>
+    <title>User Activity Monitoring</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
-    <h1>Active Clients</h1>
-    <table border="1">
-        <tr>
-            <th>IP</th>
-            <th>User</th>
-            <th>Last Active</th>
-            <th>Action</th>
-        </tr>
-        {% for client in clients %}
-        <tr>
-            <td>{{ client.ip }}</td>
-            <td>{{ client.user }}</td>
-            <td>{{ client.last_active }}</td>
-            <td><a href="/screenshot/{{ client.ip }}">Request Screenshot</a></td>
-        </tr>
-        {% endfor %}
+    <h1>Connected Clients Activity</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>IP Address</th>
+                <th>Activity</th>
+                <th>Last Active</th>
+                <th>Screenshot</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if clients %}
+                {% for address, info in clients.items() %}
+                    <tr>
+                        <td>{{ address[0] }}</td>  <!-- Extracting IP Address -->
+                        <td>{{ info['activity'] }}</td>  <!-- Extracting Activity -->
+                        <td>{{ info['last_active'] }}</td>  <!-- Extracting Last Active Time -->
+                        <td>
+                            {% if info['screenshot'] %}
+                                <a href="{{ info['screenshot'] }}" download>Download Screenshot</a>
+                            {% else %}
+                                No Screenshot Available
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr><td colspan="4">No client activity yet.</td></tr>
+            {% endif %}
+        </tbody>
     </table>
 </body>
 </html>
